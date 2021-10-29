@@ -18,11 +18,6 @@ const Header = (title, date, temp) => {
   const h1 = document.createElement('h1');
   const spanTemp = document.createElement('span');
 
-  //making the hierarchy 
-  header.appendChild(spanDate);
-  header.appendChild(h1);
-  header.appendChild(spanTemp);
-
   //classes
   header.classList.add('header');
   spanDate.classList.add('date');
@@ -33,6 +28,11 @@ const Header = (title, date, temp) => {
   h1.textContent = `${title}`;
   spanTemp.textContent= `${temp}`;
 
+//making the hierarchy 
+  header.appendChild(spanDate);
+  header.appendChild(h1);
+  header.appendChild(spanTemp);
+  
   return header;
 }
 
@@ -46,16 +46,14 @@ const headerAppender = (selector) => {
   // It should append the header to the element in the DOM that matches the given selector.
   //
   const entryPoint = document.querySelector(selector);
-  const obj = {
-    title: 'Lambda Times',
-    date: 'October 29, 2021',
-    temp: '64F'
-  }
-  const info = Header(obj);
-  entryPoint.appendChild(Header(info));
+  const title = 'Lambda Times';
+  const date= 'October 29, 2021';
+  const temp = '64F';
+
+  const info = Header(title, date, temp);
+  entryPoint.appendChild(info);
   
 }
 
 export { Header, headerAppender }
 
-console.log(headerAppender);
