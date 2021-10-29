@@ -21,7 +21,7 @@ const Tabs = (topics) => {
   const topicsDiv = document.createElement('div');
   topicsDiv.classList.add('topics');
 
-  for(let i = 0; i < topics.length -1; i++){
+  for(let i = 0; i < topics.length; i++){
     const classTab = document.createElement('div');
     classTab.classList.add('tab');
     classTab.textContent = topics[i];

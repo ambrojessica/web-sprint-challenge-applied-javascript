@@ -21,38 +21,37 @@ const Card = (article) => {
   //
 
   //create elements
-  const cardDiv = document.createElement('div');
+  const parentCardDiv = document.createElement('div');
   const headlineDiv = document.createElement('div');
   const authorDiv = document.createElement('div');
   const imgDiv = document.createElement('div');
-  const image = document.createElement('img');
-  const span = document.createElement('span');
-
-  //hierarchy
-  cardDiv.appendChild(headlineDiv);
-  cardDiv.appendChild(authorDiv);
-  cardDiv.appendChild(imgDiv);
-  imgDiv.appendChild(image);
-  cardDiv.appendChild(span);
+  const authorImage = document.createElement('img');
+  const authorNameSpan = document.createElement('span');
   
-
   //classes
-  cardDiv.classList.add('card');
+  parentCardDiv.classList.add('card');
   headlineDiv.classList.add('headline');
   authorDiv.classList.add('author');
   imgDiv.classList.add('img-container');
-
+  
   //textContent
-  image.setAttribute('src', `${article.authorPhoto}`);
   headlineDiv.textContent = article.headline;
-  span.textContent = `By: ${article.authorName}`;
-
+  authorImage.setAttribute('src', article.authorPhoto);
+  authorNameSpan.textContent = `By ${article.authorName}`;
+  
   //eventListener
-  cardDiv.addEventListener('click', () => {
-    console.log('clicked card');
+  parentCardDiv.addEventListener('click', () => {
+    console.log(article.headline);
   })
 
-  return cardDiv;
+  //hierarchy
+  parentCardDiv.appendChild(headlineDiv);
+  imgDiv.appendChild(authorImage);
+  authorDiv.appendChild(imgDiv);
+  authorDiv.appendChild(authorNameSpan);
+  parentCardDiv.appendChild(authorDiv);
+  
+  return parentCardDiv;
 }
 
 const cardAppender = (selector) => {
@@ -66,10 +65,17 @@ const cardAppender = (selector) => {
   //
   // const entryPoint = document.querySelector(selector);
 
-  const test = document.querySelector(selector);
+  const parent = document.querySelector(selector);
   axios.get(`http://localhost:5000/api/articles`)
   .then (resp => {
-    test.appendChild(Card(resp.data.article));
+    const articleTopics = Object.keys(resp.data.articles); //an array of strings where each element is a key of the articles object
+    for(let i=0; i < articleTopics.length; i++) {
+      const topicName = articleTopics[i]; //key in a string, i is just a pointer. i is always changing.
+      const topicsArticlesArray = resp.data.articles[topicName]; //value to the topic key in the articles object
+      topicsArticlesArray.forEach((article) => {
+          parent.appendChild(Card(article)); //using the parent from (70) we want to append items to it, in this case we use Card function
+      })
+    }
   })
   .catch(err => {
     console.log(err);
