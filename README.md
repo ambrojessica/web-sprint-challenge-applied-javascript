@@ -60,9 +60,16 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What is the DOM?
-The DOM is an acronym for Document Object Model, this is the structure of a web page, this includes the style and content that goes inside of the web page. We can use the DOM 
+The DOM is an acronym for Document Object Model, this is the structure of a web page, this starts at the document of the page and goes through the html, styling and content which can also be identified as nodes. We can use the DOM to manipulate or add things to our document by using JavaScript.
 
 2. What is an event?
+Events are when we use JavaScript to let the developer know when there has been a change in the site. Events can be used when the user clicks on something in the application, or if the user has low battery we can use events and let them know. Events can sometimes use functions however the function will not work unless something triggers it.  
+
 3. What is an event listener?
+An event listener is used when something triggers it. We can add an event listener, this will wait until the user does something or until something triggers it and it then follows a function (not always) and executes what the web developer wants it to do. However, you can also remove an event listener if you would like. If we read the syntax it starts with your element, addEventListener, then the event that you want to happen, followed by the function if there is one.
+
 4. Why would we convert a NodeList into an Array?
+Sometimes we cannot access what is in a NodeList however if we convert it into an array we can then access the array and put it to use. Nodelists are a bunch of nodes that are able to get into the DOM and manipulate it, but it is best to convert and use arrays because they can hold more values and it is easier to use. 
+
 5. What is a component?
+A component is what we are trying to display in our web page. We use components for HTML, CSS and tie it with JavaScript. We use components to add or delete HTML and CSS, we can do this by using JavaScript, this will tie all of our elements together and get us clean code.
