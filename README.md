@@ -51,7 +51,7 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 ## Submission format
 
 - [ ] Submit via Codegrade by committing and pushing any new changes to the *main* branch.
-- [ ] Check Codegrade for automated feedback.
+- [ ] Check Codegrade  for automated feedback.
 - [ ] Check Codegrade in the days following the Sprint Challenge for reviewer feedback.
 - [ ] Any changes pushed after the deadline will not receive any feedback.
 
@@ -60,6 +60,8 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What is the DOM?
+The DOM is an acronym for Document Object Model, this is the structure of a web page, this includes the style and content that goes inside of the web page. We can use the DOM 
+
 2. What is an event?
 3. What is an event listener?
 4. Why would we convert a NodeList into an Array?
