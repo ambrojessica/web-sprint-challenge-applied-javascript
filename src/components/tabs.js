@@ -62,10 +62,9 @@ const tabsAppender = (selector) => {
 
   axios.get(`http://localhost:5000/api/topics`)
   .then(resp => {
-    console.log(resp);
     for(let i = 0; i < resp.data.topics.length; i++){
       const tabObj = {
-        topics: resp.data.topics[i = 5],
+        topics: resp.data.topics[i=5],
       }
       const tabCard = Tabs(tabObj);
       entry.appendChild(tabCard);
